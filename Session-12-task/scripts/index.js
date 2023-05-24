@@ -111,7 +111,7 @@ $("body").on("click", "#modal-close-icon,#modal-close-btn", function(e){
 
 function insertTemplate(i){
     card_temp = `<div class="col-md-3 mb-3">
-    <div data-idx=${i} class="card text-center">
+    <div data-idx=${i} class="card text-center" style="cursor:pointer;">
       <img src="${card_obj[i].src}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title theme-blue-color">${card_obj[i].title}</h5>
@@ -130,22 +130,32 @@ function insertTemplate(i){
 function modalPopupTemp(card_idx){
     var modal_popup_temp = `<div id="modal_popup" class="modal-popup">
     <div id="modal-popup-body" class="modal-popup-content">
-        <span id="modal-close-icon" class="Close" data-dismiss="modal">&times;</span>
+    <div class="row justify-content-end pb-5">
+    <div class="col-md-1 d-flex justify-content-end ">
+      <span id="modal-close-icon" class="Close" data-dismiss="modal" style="font-size: 50px; cursor:pointer">&times;</span>
+    </div>
+  </div>
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-5" style="padding:0px 30px;">
             <div class="d-flex">
               <img id="modal-img" class="w-100 img-fluid" src=${card_obj[card_idx].src} alt="card-img">
 
             </div>
           </div>
 
-          <div class="col-md-7">
-            <h2 id="modal-title" class="theme-blue-color">${card_obj[card_idx].title}</h2>
+          <div class="col-md-7" style="padding: 0px 60px;">
+            <h2 id="modal-title" class="theme-blue-color mb-3">${card_obj[card_idx].title}</h2>
             <p id="modal-paragraph">${card_obj[card_idx].paragraph}</p>
           </div>
           
         </div>
-        <button id="modal-close-btn" class="btn btn-light">Close</button>
+        <div class="row justify-content-center" style="padding-top:150px">
+        <div class="col-md-1">
+          <button id="modal-close-btn" class="btn btn-light">Close</button>
+
+        </div> 
+
+       </div>
     </div>
 </div>`
 $("body").append(modal_popup_temp)
